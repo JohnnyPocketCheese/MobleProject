@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bf2b9c3170220fa43aef8c44513b6ab1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Tricks
+  fontNames:
+  - Tricks
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: bdaa649d6603f514ebda77165cb48285, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
