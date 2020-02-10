@@ -45,4 +45,9 @@ public class PauseMenu2 : MonoBehaviour
     {
         Application.Quit();
     }
+    public void PauseMenu()
+    {
+        GetComponent<Canvas>().enabled = true;
+        Time.timeScale = 0;
+    }
 }

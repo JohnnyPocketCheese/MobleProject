@@ -10,15 +10,16 @@ public class PlatformerMovement : MonoBehaviour
     public int jumpCount = 0;
     public int maxJumps = 2;
     Animator anim;
-
+    public float moveX;
     private void Start()
     {
         anim = GetComponent<Animator>();
+        moveX = 1;
     }
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxis("Horizontal");
+        //float moveX = Input.GetAxis("Horizontal");
         Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
         velocity.x = moveSpeed * moveX;
         GetComponent<Rigidbody2D>().velocity = velocity;
@@ -30,22 +31,22 @@ public class PlatformerMovement : MonoBehaviour
         anim.SetFloat("x", velocity.x);
         anim.SetFloat("y", velocity.y);
         float x = Input.GetAxisRaw("Horizontal");
-        if(x > 0)
+        if(moveX > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
-        }else if(x < 0)
+        }else if(moveX < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
     }
-    void Jump()
+    public void Jump()
     {
-        if (!grounded)
+        if (jumpCount < maxJumps)
         {
             jumpCount++;
-        }
-        GetComponent<Rigidbody2D>().AddForce(
+            GetComponent<Rigidbody2D>().AddForce(
             new Vector2(0, 100 * jumpSpeed));
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -62,5 +63,9 @@ public class PlatformerMovement : MonoBehaviour
             grounded = false;
             jumpCount++;
         }
+    }
+    public void Turn()
+    {
+        moveX = moveX * -1;
     }
 }
